@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/International_Business_Men.iml" filepath="$PROJECT_DIR$/.idea/modules/International_Business_Men.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/International_Business_Men.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/International_Business_Men.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/International_Business_Men.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/International_Business_Men.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/International_Business_Men.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/International_Business_Men.domain.iml" />
+    </modules>
+  </component>
+</project>

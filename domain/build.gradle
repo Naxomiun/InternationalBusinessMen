@@ -1,0 +1,16 @@
+plugins {
+    id 'kotlin'
+}
+
+dependencies {
+    //Injection
+    implementation "javax.inject:javax.inject:1"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    //Test for useCases
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "io.mockk:mockk:1.12.0"
+}
