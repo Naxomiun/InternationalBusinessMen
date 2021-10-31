@@ -7,8 +7,7 @@ import kotlin.math.round
 class CurrencyManager {
 
     var rates: List<Rate> = listOf()
-    private var foundRate: Double = 1.0
-    private var alreadyVisited: HashSet<String> = hashSetOf()
+    //private var converted: HashSet<String> = hashSetOf()
 
     fun calculateTransactionTotalAmount(
         transactions: List<Transaction>,
@@ -29,33 +28,39 @@ class CurrencyManager {
     }
 
     private fun calculateTransactionRate(from: String, to: String): Double {
-        alreadyVisited.clear()
-        foundRate = 1.0
-        foundRate = getRate(from, to)
-        return foundRate
+        return getRate(from, to) ?: 0.0
     }
 
-    private fun getRate(from: String, to: String, rate: Double = 1.0): Double {
-        calculateRateBetween(from, to)?.let {
-            return rate * it
-        } ?: run {
-            alreadyVisited.add(from)
-            rates.forEach {
-                if (it.from == from && alreadyVisited.contains(it.to).not()) {
-                    foundRate = getRate(from = it.to, to = to, rate = rate * it.rate)
-                    if (foundRate != 0.0) {
-                        return foundRate
-                    }
-                }
-            }
-        }
-        return 0.0
-    }
-
-    private fun calculateRateBetween(from: String, to: String): Double? {
+    private fun getDirectRate(from: String, to: String): Double? {
         rates.forEach {
             if (it.from == from && it.to == to) {
                 return it.rate
+            }
+        }
+        return null
+    }
+
+    private fun getRate(
+        from: String,
+        to: String,
+        rate: Double = 1.0,
+        converted: HashSet<String> = hashSetOf(),
+    ): Double? {
+        getDirectRate(from, to)?.let {
+            return rate * it
+        } ?: run {
+            rates.forEach {
+                if (it.from == from && (it.to in converted).not()) {
+                    converted.add(from)
+                    getRate(
+                        from = it.to,
+                        to = to,
+                        rate = rate * it.rate,
+                        converted = converted
+                    )?.let { newRate ->
+                        return newRate
+                    }
+                }
             }
         }
         return null

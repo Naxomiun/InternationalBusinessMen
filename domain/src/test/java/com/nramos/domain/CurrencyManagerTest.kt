@@ -48,7 +48,7 @@ class CurrencyManagerTest {
 
     @Test
     fun `calculate correct single transaction not related`() {
-        /*
+        /* 10 USD to CAD
            10 USD * 0.736 = 7.36 EUR
            7.36 EUR * 1.166 = 8.58176 CAD
          */
