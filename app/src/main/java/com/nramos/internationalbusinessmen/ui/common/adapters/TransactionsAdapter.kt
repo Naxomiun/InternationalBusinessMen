@@ -36,7 +36,7 @@ class TransactionsAdapter(private val callback: ((String) -> Unit)? = null) :
 
     class TransactionDiffCallback : DiffUtil.ItemCallback<Transaction>() {
         override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
-            return oldItem == newItem
+            return oldItem == newItem //We cant use SKU; many items shared it, we could have create and assign individual IDs.
         }
 
         override fun areContentsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {

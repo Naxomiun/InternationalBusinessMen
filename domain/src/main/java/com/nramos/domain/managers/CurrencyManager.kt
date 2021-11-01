@@ -4,10 +4,10 @@ import com.nramos.domain.model.Rate
 import com.nramos.domain.model.Transaction
 import kotlin.math.round
 
+//we could have made one interface if we needed different implementations depending on the project
 class CurrencyManager {
 
     var rates: List<Rate> = listOf()
-    //private var converted: HashSet<String> = hashSetOf()
 
     fun calculateTransactionTotalAmount(
         transactions: List<Transaction>,

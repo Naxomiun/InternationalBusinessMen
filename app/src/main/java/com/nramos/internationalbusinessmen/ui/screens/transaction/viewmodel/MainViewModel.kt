@@ -29,7 +29,6 @@ class MainViewModel @Inject constructor(
     @IoDispatcher private val ioCoroutineDispatcher: CoroutineDispatcher, //Injecting dispatchers help to define and handle in what thread are we working.
     @DefaultDispatcher private val defaultCoroutineDispatcher: CoroutineDispatcher,
     private val getRatesAndTransactions: GetRatesAndTransactions,
-    private val currencyManager: CurrencyManager,
 ) : ViewModel() {
 
     //States control persistent changes in UI
