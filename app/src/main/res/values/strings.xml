@@ -2,5 +2,9 @@
     <string name="app_name">International Business Men</string>
     <string name="transaction_fragment">Transactions</string>
     <string name="transaction_detail_fragment">Transaction detail</string>
+    <string name="transaction_title">Transaction list</string>
     <string name="total_amount_eur">TOTAL AMOUNT</string>
+    <string name="calculation_loading_string">Calculating...</string>
+    <string name="calculation_error_string">Error on calculation</string>
+    <string name="transaction_detail_title">Transaction %s detail</string>
 </resources>

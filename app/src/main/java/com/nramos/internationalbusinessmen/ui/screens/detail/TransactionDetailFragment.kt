@@ -29,10 +29,6 @@ class TransactionDetailFragment : Fragment() {
         null //TODO futurible: change to delegates
     private val binding get() = _binding!!
 
-    private val navController by lazy {
-        findNavController()
-    }
-
     private val mainViewModel: MainViewModel by activityViewModels() //Activity lifecycle shared viewModel
     private val transactionsDetailViewModel: TransactionDetailViewModel by viewModels() //Fragment lifecycle viewModel
 
@@ -61,7 +57,7 @@ class TransactionDetailFragment : Fragment() {
 
     private fun setupUI() = with(binding) {
         val filteredList = mainViewModel.getFilteredList()
-        activity?.title = String.format("Transaction %s detail", filteredList.first().sku)
+        activity?.title = getString(R.string.transaction_detail_title, filteredList.first().sku)
 
         rvTransactions.adapter = transactionsAdapter
         transactionsAdapter.submitList(filteredList)
@@ -81,11 +77,11 @@ class TransactionDetailFragment : Fragment() {
     }
 
     private fun configLoadingState(state: Loading) = with(binding) {
-        tvTotalAmount.text = "Calculating..."
+        tvTotalAmount.text =  getString(R.string.calculation_loading_string)
     }
 
     private fun configErrorState(state: Error) = with(binding) {
-        tvTotalAmount.text = "Error on calculation"
+        tvTotalAmount.text = getString(R.string.calculation_error_string)
     }
 
     override fun onDestroyView() {
