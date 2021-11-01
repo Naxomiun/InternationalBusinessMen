@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    override fun onSupportNavigateUp(): Boolean { //TODO Futurible: control backstack if more graphs are added
         navController.navigateUp()
         return super.onSupportNavigateUp()
     }

@@ -1,7 +1,5 @@
 package com.nramos.internationalbusinessmen.ui.screens.transaction
 
-
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,7 +47,7 @@ class TransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = "Transaction list"
+        activity?.title = getString(R.string.transaction_title)
 
         setupRecyclers()
         setupObservers()
